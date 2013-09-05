@@ -9,7 +9,4 @@ trait Defensor {
     energia = (energia - cantidad).max(0)
   }
   
-  def sosAtacadoPorTanque(unTanque:Tanque) = {
-    perderEnergia(200)
-  }
 }

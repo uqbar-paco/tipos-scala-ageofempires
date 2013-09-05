@@ -1,14 +1,14 @@
 package ar.edu.tadp.ageofempires
 
-class Tanque(val potencialOfensivo:Int) extends Atacante with Defensor {
+class Tanque(val potencialOfensivo: Int) extends Atacante with Defensor {
 
   def potencialDefensivo(): Int = 100
 
   override def atacarA(unDefensor: Defensor) = {
-    unDefensor.sosAtacadoPorTanque(this)
+    unDefensor match {
+      case guerrero: Guerrero => super.atacarA(guerrero)
+      case unDefensor => unDefensor.perderEnergia(200)
+    }
   }
-  
-  def atacarConAmetralladora(unGuerrero: Guerrero) = {
-    super.atacarA(unGuerrero)
-  }
+
 }
