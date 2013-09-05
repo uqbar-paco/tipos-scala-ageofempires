@@ -56,4 +56,12 @@ class AgeOfEmpiresTests {
     assertEquals(guerrero.energia, 70)
   }
   
+  @Test
+  def unTanqueAtacaAVariosObjetivos() = {
+    tanque.atacarA(List(guerrero, espadachin, muralla))
+    assertEquals(guerrero.energia, 70)
+    assertEquals(espadachin.energia, 70)
+    assertEquals(muralla.energia, 0)
+  }
+  
 }

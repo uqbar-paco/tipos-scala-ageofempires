@@ -10,4 +10,7 @@ abstract class Atacante {
     }
   }
 
+  def atacarA(objetivos: List[Defensor]): Unit = {
+    objetivos.foreach(x => this.atacarA(x))
+  }
 }
