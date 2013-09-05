@@ -64,4 +64,11 @@ class AgeOfEmpiresTests {
     assertEquals(muralla.energia, 0)
   }
   
+  @Test
+  def unGuerreroDescansaAlPerderMuchaEnergiaSiTieneEjercitoProtector() = {
+    guerrero.addObserver(new EjercitoProtector)
+    guerrero.perderEnergia(80)
+    assertEquals(guerrero.energia, 30)
+  }
+  
 }
