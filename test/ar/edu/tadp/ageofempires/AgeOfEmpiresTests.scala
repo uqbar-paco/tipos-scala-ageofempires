@@ -9,12 +9,14 @@ class AgeOfEmpiresTests {
   var guerrero:Guerrero = null
   var espadachin:Espadachin = null
   var misil:Misil = null
+  var muralla: Muralla = null
   
   @Before
   def setUp() = {
     guerrero = new Guerrero(30, 20)
     espadachin = new Espadachin(20, 20, 0.5, new Espada(20))
     misil = new Misil
+    muralla = new Muralla(25)
   }
   
   @Test
@@ -38,6 +40,12 @@ class AgeOfEmpiresTests {
   def unMisilAtacaAUnGuerrero() = {
     misil.atacarA(guerrero)
     assertEquals(guerrero.energia, 0)
+  }
+  
+  @Test
+  def unEspadachinAtacaAUnaMuralla() = {
+    espadachin.atacarA(muralla)
+    assertEquals(muralla.energia, 95)
   }
   
 }
