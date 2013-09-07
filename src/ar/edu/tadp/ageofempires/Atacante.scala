@@ -4,9 +4,15 @@ abstract class Atacante {
 
   def potencialOfensivo: Int
 
-  def atacarA(guerrero: Guerrero) = {
-    if (guerrero.potencialDefensivo < this.potencialOfensivo) {
-      guerrero.perderEnergia(this.potencialOfensivo - guerrero.potencialDefensivo)
+  def atacarA(unDefensor:Defensor) = {
+    if (unDefensor.potencialDefensivo < this.potencialOfensivo) {
+      unDefensor.perderEnergia(this.potencialOfensivo - unDefensor.potencialDefensivo)
     }
   }
+  
+  def atacarA(objetivos:List[Defensor]):Unit = {
+    objetivos.foreach(x => this.atacarA(x))
+  }
+  
+  
 }
